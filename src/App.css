@@ -9,6 +9,7 @@
 
   display: flex;
   padding: 0 80px 0;
+  gap: 4px;
   /* flex-direction: column; */
 }
 
@@ -49,4 +50,10 @@
 
 .container {
   padding: 0 20px 0;
+  border: 1px solid black;
+}
+
+.container li {
+  padding: 5px 20px;
+  list-style-type: none;
 }

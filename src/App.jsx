@@ -40,29 +40,56 @@ function App() {
     },
     startDate: {
       inputLabel: "Start Date: ",
-      id: "start-date",
-      placeHolder: "Jan 1, 2020",
-      type: "date"
+      id: "startDate",
+      type: "date",
+      value: "2009-09-01"
     },
     endDate: {
       inputLabel: "End date: ",
-      id: "end-date",
-      placeHolder: "Apr 1, 2024",
-      type: "date"
+      id: "endDate",
+      type: "date",
+      value: "2013-05-01"
     },
     location: {
       inputLabel: "Location: ",
       id: "location",
-      placeHolder: "University of Victoria"
+      placeHolder: "Victoria"
     },
   });
   const [experience, setExperience] = useState({
-    company: "",
-    position: "",
-    startDate: "",
-    endDate: "",
-    location: "",
-    description: ""
+    company: {
+      inputLabel: "Company: ",
+      id: "company",
+      placeHolder: "Mega Corp"
+    },
+    position: {
+      inputLabel: "Position: ",
+      id: "position",
+      placeHolder: "Lackey"
+    },
+    startDate: {
+      inputLabel: "Start Date: ",
+      id: "startDate",
+      type: "date",
+      value: "2009-09-01"
+    },
+    endDate: {
+      inputLabel: "End date: ",
+      id: "endDate",
+      type: "date",
+      value: "2013-05-01"
+    },
+    location: {
+      inputLabel: "Location: ",
+      id: "location",
+      placeHolder: "Victoria"
+    },
+    description: {
+      inputLabel: "Description: ",
+      id: "description",
+      type: "textarea",
+
+    }
   });
 
   function changePersonalDetails(id, text) {
@@ -70,6 +97,20 @@ function App() {
     detailsCopy[id]['value'] = text;
 
     setPersonalDetails(detailsCopy);
+  }
+
+  function changeEducationDetails(id, text) {
+    const educationCopy = { ...education };
+    educationCopy[id].value = text;
+
+    setEducation(educationCopy);
+  }
+
+  function changeExperienceDetails(id, text) {
+    const experienceCopy = { ...experience };
+    experienceCopy[id].value = text;
+
+    setExperience(experienceCopy);
   }
 
   return (
@@ -80,11 +121,14 @@ function App() {
           sectionTitle="Personal Details"
           inputs={personalDetails}
           onChange={changePersonalDetails} />
-        {/* <EditSection
+        <EditSection
           sectionTitle="Education"
           inputs={education}
-          onChange={changePersonalDetails} /> */}
-        {/* <EditSection sectionTitle="Experience" /> */}
+          onChange={changeEducationDetails} />
+        <EditSection
+          sectionTitle="Experience"
+          inputs={experience}
+          onChange={changeExperienceDetails} />
       </div>
       <div className="resume-container container">
         <h4>this is where the resume will be "printed"</h4>
@@ -92,6 +136,19 @@ function App() {
         <p>Email: {personalDetails.email.value}</p>
         <p>Phone: {personalDetails.phone.value}</p>
         <p>Address: {personalDetails.address.value}</p>
+
+        <p>School: {education.school.value}</p>
+        <p>Degree: {education.degree.value}</p>
+        <p>Start: {education.startDate.value}</p>
+        <p>End: {education.endDate.value}</p>
+        <p>Location: {education.location.value}</p>
+
+        <p>Company: {experience.company.value}</p>
+        <p>Position: {experience.position.value}</p>
+        <p>Start: {experience.startDate.value}</p>
+        <p>End: {experience.endDate.value}</p>
+        <p>Location: {experience.location.value}</p>
+        <p>Description: {experience.description.value}</p>
 
       </div>
     </div>

@@ -4,11 +4,16 @@ export default function Input({ type, value, label, placeHolder, onChange, id })
     return (
         <>
             <label>{label}</label>
-            <input
-                type={type}
-                value={value}
-                placeholder={placeHolder}
-                onChange={(event) => onChange(id, event.target.value)} />
+            {type === 'textarea' ?
+                <textarea
+                    id={id}
+                    onChange={(event) => onChange(id, event.target.value)} />
+                : <input
+                    type={type === undefined ? 'text' : type}
+                    value={value}
+                    placeholder={placeHolder}
+                    onChange={(event) => onChange(id, event.target.value)} />
+            }
         </>
     )
 }

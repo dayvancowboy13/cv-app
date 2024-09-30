@@ -6,19 +6,6 @@ export default function EditSection({ sectionTitle, inputs, onChange }) {
     // console.log("inputs for section " + sectionTitle)
 
     const keys = Object.keys(inputs)
-    // console.log(key);
-    // console.log(value);
-
-    // for (let prop in inputs) {
-    //     <p>{prop}</p>
-
-    // console.log(keys)
-    // keys.map((key) => {
-    //     console.log(inputs[key]);
-    // })
-
-
-    // console.log(inputs)
 
     return (
 
