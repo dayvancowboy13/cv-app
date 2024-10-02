@@ -57,3 +57,40 @@
   padding: 5px 20px;
   list-style-type: none;
 }
+
+.edit-section {
+  display: grid;
+  justify-content: start;
+  /* border: 1px solid black; */
+}
+
+.edit-section ul {
+  display: flex;
+  flex-direction: column;
+  /* align-self: start; */
+  align-items: start;
+  padding-left: 0;
+}
+
+li button {
+  background: #34A853;
+  /* 
+  red #EA4335 
+  blue #4285F4
+  yellow #FBBC05
+  */
+}
+
+.edit-buttons button {
+  background: #4285F4;
+  margin: 0 4px 0;
+  justify-self: center;
+}
+
+.edit-buttons {
+  margin-top: 10px;
+}
+
+.form-button {
+  background: #34A853;
+}
