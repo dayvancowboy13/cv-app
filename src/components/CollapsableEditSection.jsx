@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Input from "./Input";
 
 export default function CollapsableEditSection({ sectionTitle, inputs, onChange }) {
@@ -38,8 +38,12 @@ export default function CollapsableEditSection({ sectionTitle, inputs, onChange 
         setEditIndex(null);
     }
 
-    function addElement() {
+    function addEntry() {
         console.log("Adding Element to the inputs")
+    }
+
+    function deleteEntry() {
+        console.log("delete the current entry");
     }
 
     return (
@@ -69,7 +73,8 @@ export default function CollapsableEditSection({ sectionTitle, inputs, onChange 
                                             label={inputs[editIndex][key].inputLabel}
                                             placeHolder={inputs[editIndex][key].placeHolder}
                                             onChange={onChange}
-                                            id={inputs[editIndex][key].id}
+                                            elementId={inputs[editIndex][key].id}
+                                            entryId={editIndex}
                                         />
                                     </li>
                                     : null
@@ -82,7 +87,7 @@ export default function CollapsableEditSection({ sectionTitle, inputs, onChange 
                             className="form-button"
                             onClick={(e) => {
                                 e.preventDefault()
-                                addElement()
+                                addEntry()
                             }}>+</button> :
                         <div className="edit-buttons">
                             <button
@@ -93,7 +98,7 @@ export default function CollapsableEditSection({ sectionTitle, inputs, onChange 
                             <button
                                 onClick={(e) => {
                                     e.preventDefault()
-                                    submitEdit()
+                                    deleteEntry()
                                 }}>Delete</button>
                         </div>}
                 </ul>

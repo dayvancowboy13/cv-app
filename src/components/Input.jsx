@@ -1,18 +1,20 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 
-export default function Input({ type, value, label, placeHolder, onChange, id }) {
+export default function Input({
+    type, value, label, placeHolder, onChange, elementId, entryId }) {
     return (
         <>
             <label>{label}</label>
             {type === 'textarea' ?
                 <textarea
-                    id={id}
-                    onChange={(event) => onChange(id, event.target.value)} />
+                    id={elementId}
+                    onChange={(event) => onChange(elementId, event.target.value)} />
                 : <input
                     type={type === undefined ? 'text' : type}
                     value={value}
                     placeholder={placeHolder}
-                    onChange={(event) => onChange(id, event.target.value)} />
+                    onChange={(event) => onChange(
+                        elementId, entryId, event.target.value)} />
             }
         </>
     )

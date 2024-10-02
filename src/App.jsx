@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import Input from './components/Input';
+// import Input from './components/Input';
 import EditSection from './components/EditSection';
 import CollapsableEditSection from './components/CollapsableEditSection';
 
@@ -139,16 +139,16 @@ function App() {
     setPersonalDetails(detailsCopy);
   }
 
-  function changeEducationDetails(id, text) {
-    const educationCopy = { ...education };
-    educationCopy[id].value = text;
+  function changeEducationDetails(id, entryId, text) {
+    const educationCopy = [...education];
+    educationCopy[entryId][id].value = text;
 
     setEducation(educationCopy);
   }
 
-  function changeExperienceDetails(id, text) {
-    const experienceCopy = { ...experience };
-    experienceCopy[id].value = text;
+  function changeExperienceDetails(id, entryId, text) {
+    const experienceCopy = [...experience];
+    experienceCopy[entryId][id].value = text;
 
     setExperience(experienceCopy);
   }
@@ -207,18 +207,25 @@ function App() {
         <p>Phone: {personalDetails.phone.value}</p>
         <p>Address: {personalDetails.address.value}</p>
 
-        {/* <p>School: {education.school.value}</p>
-        <p>Degree: {education.degree.value}</p>
-        <p>Start: {education.startDate.value}</p>
-        <p>End: {education.endDate.value}</p>
-        <p>Location: {education.location.value}</p>
+        {
+          education.map((entry) => {
+            return (
+              <div classID='resume-education' key={entry}>
+                <h3 key={entry.school.value}>{entry.school.value}</h3>
+                <p key={entry.degree.value}><em key={entry.degree.value + "em"}>{entry.degree.value}</em></p>
+              </div>
+            )
+          })}{
+          experience.map((entry) => {
+            return (
+              <div classID='resume-experience' key={entry}>
+                <h3 key={entry.company.value}>{entry.company.value}</h3>
+                <p key={entry.position.value}><em key={entry.position.value + "em"}>{entry.position.value}</em></p>
+              </div>
+            )
+          })
 
-        <p>Company: {experience.company.value}</p>
-        <p>Position: {experience.position.value}</p>
-        <p>Start: {experience.startDate.value}</p>
-        <p>End: {experience.endDate.value}</p>
-        <p>Location: {experience.location.value}</p>
-        <p>Description: {experience.description.value}</p> */}
+        }
 
       </div>
     </div>
