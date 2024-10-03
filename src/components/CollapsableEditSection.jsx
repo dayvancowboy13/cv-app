@@ -4,11 +4,11 @@ import Input from "./Input";
 // const educationEntryTemplate = 
 
 export default function CollapsableEditSection({
-    sectionTitle, inputs, onChange, onAdd }) {
+    sectionTitle, inputs, onChange, onAdd, onDelete }) {
     const [editMode, setEditMode] = useState(false)
     // which item in the inputs array/object is being edited:
     const [editIndex, setEditIndex] = useState(null);
-    const keys = Object.keys(inputs[0])
+    // const keys = Object.keys(inputs[0])
 
     function createButton(title, id) {
         return (
@@ -19,9 +19,6 @@ export default function CollapsableEditSection({
                 }}>{title}</button>
         )
     }
-
-    // FOCUS ON GETTING MULTIPLE ITEMS TO SHOW UP AND USER CAN SELECT THEM
-    // THEN WORK ON THE HIDING AND SHOWING PART OF IT
 
     function showEditBox(title, id) {
         console.log(`opening edit box for ${title} button`);
@@ -46,6 +43,10 @@ export default function CollapsableEditSection({
 
     function deleteEntry() {
         console.log("delete the current entry");
+        onDelete(editIndex);
+
+        setEditMode(false)
+        setEditIndex(inputs.length - 1)
     }
 
     return (
@@ -55,22 +56,23 @@ export default function CollapsableEditSection({
                 <h2>{sectionTitle}</h2>
                 <ul>
                     {!editMode ?
-                        inputs.map((entry) => {
-                            return (
-                                <li key={entry.id}>
-                                    {createButton(
-                                        entry.school !== undefined ?
-                                            entry.school.value !== undefined ? entry.school.value :
-                                                entry.school.placeHolder :
-                                            entry.company.value !== undefined ?
-                                                entry.company.value
-                                                : entry.company.placeHolder,
-                                        entry.id)}
-                                </li>)
-                        })
-                        :
-
-                        keys.map((key) => {
+                        inputs.length !== 0 ? (
+                            inputs.map((entry) => {
+                                return (
+                                    <li key={entry.id}>
+                                        {createButton(
+                                            entry.school !== undefined ?
+                                                entry.school.value !== undefined ? entry.school.value :
+                                                    entry.school.placeHolder :
+                                                entry.company.value !== undefined ?
+                                                    entry.company.value
+                                                    : entry.company.placeHolder,
+                                            entry.id)}
+                                    </li>)
+                            })) : (
+                            console.log('blah')
+                        ) :
+                        Object.keys(inputs[0]).map((key) => {
                             return (
                                 key !== 'id' ?
                                     <li key={key}>

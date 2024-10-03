@@ -231,12 +231,44 @@ function App() {
       }
     };
 
-
-
     const experienceCopy = [...experience];
     experienceCopy.push(newEntry);
     setExperience(experienceCopy);
 
+  }
+
+  function updateIds(array) {
+    const len = array.length;
+
+    for (let i = 0; i < len; i++) {
+      array[i].id = i;
+    }
+  }
+
+  function deleteEducationEntry(index) {
+    // console.log("Calling delete education entry function");
+
+    // console.log('the item being deleted is')
+    // console.log(education[index].school)
+
+    const educationCopy = [...education];
+    educationCopy.splice(index, 1);
+    updateIds(educationCopy);
+    // console.log(educationCopy)
+    setEducation(educationCopy);
+  }
+
+  function deleteExperienceEntry(index) {
+    // console.log("Calling delete education entry function");
+
+    // console.log('the item being deleted is')
+    // console.log(education[index].school)
+
+    const experienceCopy = [...experience];
+    experienceCopy.splice(index, 1);
+    updateIds(experienceCopy);
+    // console.log(educationCopy)
+    setExperience(experienceCopy);
   }
 
   return (
@@ -251,12 +283,14 @@ function App() {
           sectionTitle="Education"
           inputs={education}
           onChange={changeEducationDetails}
-          onAdd={addEducationEntry} />
+          onAdd={addEducationEntry}
+          onDelete={deleteEducationEntry} />
         <CollapsableEditSection
           sectionTitle="Experience"
           inputs={experience}
           onChange={changeExperienceDetails}
-          onAdd={addExperienceEntry} />
+          onAdd={addExperienceEntry}
+          onDelete={deleteExperienceEntry} />
       </div>
       <div className="resume-container container">
         <h4>this is where the resume will be`&quot;`printed`&quot;`</h4>
