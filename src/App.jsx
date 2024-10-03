@@ -116,12 +116,14 @@ function App() {
     email: {
       inputLabel: "Email: ",
       id: "email",
-      placeHolder: "email@domain"
+      placeHolder: "email@domain",
+      type: 'email'
     },
     phone: {
       inputLabel: "Phone: ",
       id: "phone",
-      placeHolder: "555-555-5555"
+      placeHolder: "555-555-5555",
+      type: 'phone'
     },
     address: {
       inputLabel: "Address: ",
@@ -139,14 +141,14 @@ function App() {
     setPersonalDetails(detailsCopy);
   }
 
-  function changeEducationDetails(id, entryId, text) {
+  function changeEducationDetails(id, text, entryId) {
     const educationCopy = [...education];
     educationCopy[entryId][id].value = text;
 
     setEducation(educationCopy);
   }
 
-  function changeExperienceDetails(id, entryId, text) {
+  function changeExperienceDetails(id, text, entryId) {
     const experienceCopy = [...experience];
     experienceCopy[entryId][id].value = text;
 

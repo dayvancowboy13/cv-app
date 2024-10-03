@@ -18,7 +18,7 @@ export default function EditSection({ sectionTitle, inputs, onChange }) {
                                 label={inputs[key].inputLabel}
                                 placeHolder={inputs[key].placeHolder}
                                 onChange={onChange}
-                                id={inputs[key].id}
+                                elementId={inputs[key].id}
                             />
                         </li>
                     })

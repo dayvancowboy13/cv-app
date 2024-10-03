@@ -14,7 +14,7 @@ export default function Input({
                     value={value}
                     placeholder={placeHolder}
                     onChange={(event) => onChange(
-                        elementId, entryId, event.target.value)} />
+                        elementId, event.target.value, entryId)} />
             }
         </>
     )
