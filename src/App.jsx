@@ -153,34 +153,89 @@ function App() {
     setExperience(experienceCopy);
   }
 
-  function testChangeEdu() {
-    // function will be generic, take in the set function for either
-    // the experience or education states
+  function addEducationEntry(newIndex) {
+    const newEntry = {
+      id: newIndex,
+      school: {
+        inputLabel: "School: ",
+        id: "school",
+        placeHolder: "University of Victoria"
+      },
+      degree: {
+        inputLabel: "Degree: ",
+        id: "degree",
+        placeHolder: "Bachelor of Arts"
+      },
+      startDate: {
+        inputLabel: "Start Date: ",
+        id: "startDate",
+        type: "date",
+        value: "2009-09-01"
+      },
+      endDate: {
+        inputLabel: "End date: ",
+        id: "endDate",
+        type: "date",
+        value: "2013-05-01"
+      },
+      location: {
+        inputLabel: "Location: ",
+        id: "location",
+        placeHolder: "Victoria"
+      }
+    }
 
-    // first copy the current version of the state object
-    // this will then be used in the state's set call
-    const objCopy = { ...education };
+    const educationCopy = [...education];
+    educationCopy.push(newEntry);
+    setEducation(educationCopy);
 
-    // the current length will give the id for a new entry
-    const newId = education.length;
-
-    // The following will need to be done in another function ////
-
-    // populate the new object which will be added to the state 
-    const newObj = { ...education[0] }
-    // and give it the id set above
-    newObj['id'] = newId;
-
-    // /////////////
-
-    // add the new object to the copy
-    objCopy[newId] = newObj;
-
-
-    setEducation(objCopy)
   }
 
-  // console.log(education)
+  function addExperienceEntry(newIndex) {
+    const newEntry = {
+      id: newIndex,
+      company: {
+        inputLabel: "Company: ",
+        id: "company",
+        placeHolder: "Mega Corp"
+      },
+      position: {
+        inputLabel: "Position: ",
+        id: "position",
+        placeHolder: "Lackey"
+      },
+      startDate: {
+        inputLabel: "Start Date: ",
+        id: "startDate",
+        type: "date",
+        value: "2009-09-01"
+      },
+      endDate: {
+        inputLabel: "End date: ",
+        id: "endDate",
+        type: "date",
+        value: "2013-05-01"
+      },
+      location: {
+        inputLabel: "Location: ",
+        id: "location",
+        placeHolder: "Victoria"
+      },
+      description: {
+        inputLabel: "Description: ",
+        id: "description",
+        type: "textarea",
+
+      }
+    };
+
+
+
+    const experienceCopy = [...experience];
+    experienceCopy.push(newEntry);
+    setExperience(experienceCopy);
+
+  }
 
   return (
     <div id="app">
@@ -193,12 +248,13 @@ function App() {
         <CollapsableEditSection
           sectionTitle="Education"
           inputs={education}
-          onChange={changeEducationDetails} />
+          onChange={changeEducationDetails}
+          onAdd={addEducationEntry} />
         <CollapsableEditSection
           sectionTitle="Experience"
           inputs={experience}
-          onChange={changeExperienceDetails} />
-        <button onClick={testChangeEdu}>Hit me!</button>
+          onChange={changeExperienceDetails}
+          onAdd={addExperienceEntry} />
       </div>
       <div className="resume-container container">
         <h4>this is where the resume will be`&quot;`printed`&quot;`</h4>
@@ -210,7 +266,7 @@ function App() {
         {
           education.map((entry) => {
             return (
-              <div classID='resume-education' key={entry}>
+              <div classID='resume-education' key={entry.id}>
                 <h3 key={entry.school.value}>{entry.school.value}</h3>
                 <p key={entry.degree.value}><em key={entry.degree.value + "em"}>{entry.degree.value}</em></p>
               </div>
@@ -218,7 +274,7 @@ function App() {
           })}{
           experience.map((entry) => {
             return (
-              <div classID='resume-experience' key={entry}>
+              <div classID='resume-experience' key={entry.id}>
                 <h3 key={entry.company.value}>{entry.company.value}</h3>
                 <p key={entry.position.value}><em key={entry.position.value + "em"}>{entry.position.value}</em></p>
               </div>

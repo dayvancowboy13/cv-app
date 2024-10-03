@@ -1,18 +1,16 @@
 import { useState } from "react";
 import Input from "./Input";
 
-export default function CollapsableEditSection({ sectionTitle, inputs, onChange }) {
+// const educationEntryTemplate = 
+
+export default function CollapsableEditSection({
+    sectionTitle, inputs, onChange, onAdd }) {
     const [editMode, setEditMode] = useState(false)
     // which item in the inputs array/object is being edited:
     const [editIndex, setEditIndex] = useState(null);
     const keys = Object.keys(inputs[0])
-    console.log("Inputs object: ");
-    console.log(inputs);
-    console.log("Keys: ");
-    console.log(keys)
 
     function createButton(title, id) {
-        console.log(title)
         return (
             <button
                 onClick={(e) => {
@@ -39,7 +37,11 @@ export default function CollapsableEditSection({ sectionTitle, inputs, onChange 
     }
 
     function addEntry() {
-        console.log("Adding Element to the inputs")
+        console.log("Adding Element to the inputs");
+        onAdd(inputs.length);
+
+        setEditMode(true);
+        setEditIndex(inputs.length)
     }
 
     function deleteEntry() {
@@ -57,7 +59,12 @@ export default function CollapsableEditSection({ sectionTitle, inputs, onChange 
                             return (
                                 <li key={entry.id}>
                                     {createButton(
-                                        entry.school !== undefined ? entry.school.placeHolder : entry.company.placeHolder,
+                                        entry.school !== undefined ?
+                                            entry.school.value !== undefined ? entry.school.value :
+                                                entry.school.placeHolder :
+                                            entry.company.value !== undefined ?
+                                                entry.company.value
+                                                : entry.company.placeHolder,
                                         entry.id)}
                                 </li>)
                         })
