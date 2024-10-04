@@ -4,10 +4,12 @@ import Input from "./Input";
 export default function EditSection({ sectionTitle, inputs, onChange }) {
     const keys = Object.keys(inputs)
 
+    // const divClass = sectionTitle.toString().repl
+
     return (
 
         <>
-            <form className={`${sectionTitle} edit-section`}>
+            <form className={`${sectionTitle.replace(' ', '-').toLowerCase()} edit-section`}>
                 <h2>{sectionTitle}</h2>
                 <ul>
                     {keys.map((key) => {

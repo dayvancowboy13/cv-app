@@ -3,6 +3,7 @@ import './App.css'
 // import Input from './components/Input';
 import EditSection from './components/EditSection';
 import CollapsableEditSection from './components/CollapsableEditSection';
+import ResumeDisplay from './components/ResumeDisplay';
 
 
 const initialEducation = [
@@ -293,31 +294,10 @@ function App() {
           onDelete={deleteExperienceEntry} />
       </div>
       <div className="resume-container container">
-        <h4>this is where the resume will be`&quot;`printed`&quot;`</h4>
-        <p>Full name: {personalDetails.name.value}</p>
-        <p>Email: {personalDetails.email.value}</p>
-        <p>Phone: {personalDetails.phone.value}</p>
-        <p>Address: {personalDetails.address.value}</p>
-
-        {
-          education.map((entry) => {
-            return (
-              <div classID='resume-education' key={entry.id}>
-                <h3 key={entry.school.value}>{entry.school.value}</h3>
-                <p key={entry.degree.value}><em key={entry.degree.value + "em"}>{entry.degree.value}</em></p>
-              </div>
-            )
-          })}{
-          experience.map((entry) => {
-            return (
-              <div classID='resume-experience' key={entry.id}>
-                <h3 key={entry.company.value}>{entry.company.value}</h3>
-                <p key={entry.position.value}><em key={entry.position.value + "em"}>{entry.position.value}</em></p>
-              </div>
-            )
-          })
-
-        }
+        <ResumeDisplay
+          personalDetails={personalDetails}
+          education={education}
+          experience={experience} />
 
       </div>
     </div>

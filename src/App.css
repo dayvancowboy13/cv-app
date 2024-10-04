@@ -48,14 +48,51 @@
   padding: 2em;
 }
 
+form {
+  background-color: hsl(0, 55%, 73%);
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+form h2 {
+  justify-self: first baseline;
+}
+
 .container {
-  padding: 0 20px 0;
+  /* padding: 0 20px 10px; */
   border: 1px solid black;
+  min-width: 350px;
 }
 
 .container li {
-  padding: 5px 20px;
+  padding: 5px 0;
   list-style-type: none;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  & label {
+    align-self: flex-start;
+    padding-bottom: 5px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  & input {
+    border-radius: 10px;
+    padding: 2px 5px;
+    font-size: 18px;
+    border: 3px solid #222222;
+    width: 100%;
+  }
+
+  & input:focus {
+    border: 3px solid #4285F4;
+    outline: none;
+  }
+
+  /* justify-items: flex-start; */
 }
 
 .edit-section {
@@ -67,13 +104,20 @@
 .edit-section ul {
   display: flex;
   flex-direction: column;
+  width: 325px;
   /* align-self: start; */
   align-items: start;
   padding-left: 0;
+  margin: 0;
+}
+
+.edit-mode-false {
+  /* width: 130%; */
 }
 
 li button {
   background: #34A853;
+  width: 100%;
   /* 
   red #EA4335 
   blue #4285F4
@@ -81,16 +125,54 @@ li button {
   */
 }
 
-.edit-buttons button {
-  background: #4285F4;
+.edit-buttons {
   margin: 0 4px 0;
-  justify-self: center;
+
+  & .submit-button {
+    background: #4285F4;
+    margin: 0 4px 0;
+
+  }
+
+  & .delete-button {
+    background: hsl(5, 81%, 56%);
+    margin: 0 4px 0;
+
+  }
 }
 
 .edit-buttons {
-  margin-top: 10px;
+  margin: 8px 0;
+  align-self: center;
 }
 
 .form-button {
   background: #34A853;
+  align-self: center;
+  font-size: 35px;
+  padding: 0;
+  width: 100%;
+  /* height: 35px; */
+  /* border-radius: 40px; */
+}
+
+button {
+  border-radius: 10px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 7px auto -webkit-focus-ring-color;
 }

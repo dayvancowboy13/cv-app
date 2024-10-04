@@ -8,7 +8,6 @@ export default function CollapsableEditSection({
     const [editMode, setEditMode] = useState(false)
     // which item in the inputs array/object is being edited:
     const [editIndex, setEditIndex] = useState(null);
-    // const keys = Object.keys(inputs[0])
 
     function createButton(title, id) {
         return (
@@ -52,9 +51,9 @@ export default function CollapsableEditSection({
     return (
 
         <>
-            <form className={`${sectionTitle} edit-section`}>
+            <form className={`${sectionTitle.toLowerCase()} edit-section`}>
                 <h2>{sectionTitle}</h2>
-                <ul>
+                <ul className={`edit-mode-${editMode}`}>
                     {!editMode ?
                         inputs.length !== 0 ? (
                             inputs.map((entry) => {
@@ -70,7 +69,7 @@ export default function CollapsableEditSection({
                                             entry.id)}
                                     </li>)
                             })) : (
-                            console.log('blah')
+                            console.log(`${sectionTitle} has no entries to add to the page`)
                         ) :
                         Object.keys(inputs[0]).map((key) => {
                             return (
@@ -100,11 +99,13 @@ export default function CollapsableEditSection({
                             }}>+</button> :
                         <div className="edit-buttons">
                             <button
+                                className={'submit-button'}
                                 onClick={(e) => {
                                     e.preventDefault()
                                     submitEdit()
                                 }}>Submit</button>
                             <button
+                                className={'delete-button'}
                                 onClick={(e) => {
                                     e.preventDefault()
                                     deleteEntry()
