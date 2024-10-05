@@ -8,7 +8,9 @@ export default function Input({
             {type === 'textarea' ?
                 <textarea
                     id={elementId}
-                    onChange={(event) => onChange(elementId, event.target.value)} />
+                    placeholder={placeHolder}
+                    rows={6}
+                    onChange={(event) => onChange(elementId, event.target.value, entryId)} />
                 : <input
                     type={type === undefined ? 'text' : type}
                     value={value}

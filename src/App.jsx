@@ -19,6 +19,11 @@ const initialEducation = [
       id: "degree",
       placeHolder: "Bachelor of Arts"
     },
+    subject: {
+      inputLabel: "Subject: ",
+      id: "subject",
+      placeHolder: "English"
+    },
     startDate: {
       inputLabel: "Start Date: ",
       id: "startDate",
@@ -48,6 +53,11 @@ const initialEducation = [
       inputLabel: "Degree: ",
       id: "degree",
       placeHolder: "Bachelor of Science"
+    },
+    subject: {
+      inputLabel: "Subject: ",
+      id: "subject",
+      placeHolder: "Chemistry"
     },
     startDate: {
       inputLabel: "Start Date: ",
@@ -102,8 +112,8 @@ const initialExperience = [
     description: {
       inputLabel: "Description: ",
       id: "description",
+      placeHolder: "Describe the responsiblities and tasks involved...",
       type: "textarea",
-
     }
   }];
 
@@ -127,7 +137,7 @@ function App() {
       type: 'phone'
     },
     address: {
-      inputLabel: "Address: ",
+      inputLabel: "Address/Location: ",
       id: "address",
       placeHolder: "City, State/Province"
     },
@@ -151,6 +161,7 @@ function App() {
 
   function changeExperienceDetails(id, text, entryId) {
     const experienceCopy = [...experience];
+    // console.log(experienceCopy[entryId])
     experienceCopy[entryId][id].value = text;
 
     setExperience(experienceCopy);
