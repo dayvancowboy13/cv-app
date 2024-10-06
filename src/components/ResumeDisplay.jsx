@@ -32,6 +32,11 @@ function PersonalDetailsSection({ name, email, phone, address }) {
         else return "";
     }
 
+    function formatPhoneNumber(number) {
+        const numString = number.toString();
+        return numString.slice(0, 3) + "-" + numString.slice(3, 6) + "-" + numString.slice(6);
+    }
+
 
     return (
         <div className='details-root'>
@@ -44,7 +49,7 @@ function PersonalDetailsSection({ name, email, phone, address }) {
                     <div className='resume details'>
                         <span className='details-location'> {address}</span>
                         <span className='details-email'> {email}</span>
-                        <span className='details-phone'> {phone}</span>
+                        <span className='details-phone'> {formatPhoneNumber(phone)}</span>
                     </div>
                 </div>
             </div>
@@ -65,7 +70,7 @@ function EducationSection({ education }) {
                         return (
                             <li key={entry.id}>
                                 <div className='entry' key={entry.id}>
-                                    <p className={'degree-date-container'} key={entry.degree.value}>
+                                    <p className='entry-header' key={entry.degree.value}>
                                         <span>
                                             <span className='degree' key={entry.degree.value}>{entry.degree.value} </span>
                                             <span className='subject'>{entry.subject.value}</span>
@@ -74,7 +79,9 @@ function EducationSection({ education }) {
                                             {new Date(entry.startDate.value).getMonth()}/{new Date(entry.startDate.value).getFullYear()} to {new Date(entry.endDate.value).getMonth()}/{new Date(entry.endDate.value).getFullYear()}
                                         </span>
                                     </p>
-                                    <p key={entry.school.value}><em>{entry.school.value}</em>, {entry.location.value}</p>
+                                    <p className='entry-body' key={entry.school.value}>
+                                        <span className='school-name'>{entry.school.value}</span>, <span className='location'>{entry.location.value}</span>
+                                    </p>
                                 </div>
                             </li>
                         )
@@ -98,14 +105,14 @@ function ExperienceSection({ experience }) {
                         experience.map((entry) => {
                             return (
                                 <li key={entry.id}>
-                                    <div classID='resume-experience' key={entry.id}>
-                                        <p className='position-date-container' key={`${entry.id}-position-dates`}>
+                                    <div classID='entry' key={entry.id}>
+                                        <p className='entry-header' key={`${entry.id}-position-dates`}>
                                             <span className='position' key={entry.position.value}>{entry.position.value}</span>
                                             <span className='experience-dates'>
                                                 {new Date(entry.startDate.value).getMonth()}/{new Date(entry.startDate.value).getFullYear()} to {new Date(entry.endDate.value).getMonth()}/{new Date(entry.endDate.value).getFullYear()}
                                             </span>
                                         </p>
-                                        <p className='company-name-position' key={entry.company.value}>
+                                        <p className='entry-body' key={entry.company.value}>
                                             <span className='company-name'>{entry.company.value}</span>
                                             <span className='company-position'>{entry.location.value}</span>
                                         </p>

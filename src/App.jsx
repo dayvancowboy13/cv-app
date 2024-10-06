@@ -12,17 +12,20 @@ const initialEducation = [
     school: {
       inputLabel: "School: ",
       id: "school",
-      placeHolder: "University of Victoria"
+      placeHolder: "University of Victoria",
+      value: "University of Victoria"
     },
     degree: {
       inputLabel: "Degree: ",
       id: "degree",
-      placeHolder: "Bachelor of Arts"
+      placeHolder: "Bachelor of Arts",
+      value: "Bachelor of Arts"
     },
     subject: {
       inputLabel: "Subject: ",
       id: "subject",
-      placeHolder: "English"
+      placeHolder: "English",
+      value: "English"
     },
     startDate: {
       inputLabel: "Start Date: ",
@@ -39,42 +42,8 @@ const initialEducation = [
     location: {
       inputLabel: "Location: ",
       id: "location",
-      placeHolder: "Victoria"
-    },
-  },
-  {
-    id: 1,
-    school: {
-      inputLabel: "School: ",
-      id: "school",
-      placeHolder: "UBC"
-    },
-    degree: {
-      inputLabel: "Degree: ",
-      id: "degree",
-      placeHolder: "Bachelor of Science"
-    },
-    subject: {
-      inputLabel: "Subject: ",
-      id: "subject",
-      placeHolder: "Chemistry"
-    },
-    startDate: {
-      inputLabel: "Start Date: ",
-      id: "startDate",
-      type: "date",
-      value: "2019-09-01"
-    },
-    endDate: {
-      inputLabel: "End date: ",
-      id: "endDate",
-      type: "date",
-      value: "2023-05-01"
-    },
-    location: {
-      inputLabel: "Location: ",
-      id: "location",
-      placeHolder: "Vancouver"
+      placeHolder: "Victoria, BC",
+      value: "Victoria, BC"
     },
   }
 ];
@@ -85,12 +54,14 @@ const initialExperience = [
     company: {
       inputLabel: "Company: ",
       id: "company",
-      placeHolder: "Mega Corp"
+      placeHolder: "Mega Corp",
+      value: "Mega Corp"
     },
     position: {
       inputLabel: "Position: ",
       id: "position",
-      placeHolder: "Lackey"
+      placeHolder: "Data Analyst",
+      value: "Data Analyst"
     },
     startDate: {
       inputLabel: "Start Date: ",
@@ -107,7 +78,8 @@ const initialExperience = [
     location: {
       inputLabel: "Location: ",
       id: "location",
-      placeHolder: "Victoria"
+      placeHolder: "Victoria, BC",
+      value: "Victoria, BC"
     },
     description: {
       inputLabel: "Description: ",
@@ -134,7 +106,7 @@ function App() {
       inputLabel: "Phone: ",
       id: "phone",
       placeHolder: "555-555-5555",
-      type: 'phone'
+      type: 'tel'
     },
     address: {
       inputLabel: "Address/Location: ",
@@ -179,6 +151,11 @@ function App() {
         inputLabel: "Degree: ",
         id: "degree",
         placeHolder: "Bachelor of Arts"
+      },
+      subject: {
+        inputLabel: "Subject: ",
+        id: "subject",
+        placeHolder: "English"
       },
       startDate: {
         inputLabel: "Start Date: ",

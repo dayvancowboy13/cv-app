@@ -89,29 +89,29 @@ export default function CollapsableEditSection({
 
                             );
                         })
-                    }
-                    {!editMode ?
+                    }</ul>
+                {!editMode ?
+                    <button
+                        className="form-button"
+                        onClick={(e) => {
+                            e.preventDefault()
+                            addEntry()
+                        }}>+</button> :
+                    <div className="edit-buttons">
                         <button
-                            className="form-button"
+                            className={'submit-button'}
                             onClick={(e) => {
                                 e.preventDefault()
-                                addEntry()
-                            }}>+</button> :
-                        <div className="edit-buttons">
-                            <button
-                                className={'submit-button'}
-                                onClick={(e) => {
-                                    e.preventDefault()
-                                    submitEdit()
-                                }}>Submit</button>
-                            <button
-                                className={'delete-button'}
-                                onClick={(e) => {
-                                    e.preventDefault()
-                                    deleteEntry()
-                                }}>Delete</button>
-                        </div>}
-                </ul>
+                                submitEdit()
+                            }}>Submit</button>
+                        <button
+                            className={'delete-button'}
+                            onClick={(e) => {
+                                e.preventDefault()
+                                deleteEntry()
+                            }}>Delete</button>
+                    </div>}
+
             </form >
         </>
     )
