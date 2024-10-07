@@ -4,8 +4,8 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: hsl(208, 37%, 13%);
-  background-color: #ffffff;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -38,7 +38,7 @@ h1 {
   line-height: 1.1;
 }
 
-/* @media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: light) {
   :root {
     color: hsl(208, 37%, 13%);
     background-color: #ffffff;
@@ -51,4 +51,19 @@ h1 {
   button {
     background-color: #f9f9f9;
   }
-} */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: hsl(208, 37%, 13%);
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
