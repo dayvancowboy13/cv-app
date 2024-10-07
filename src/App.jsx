@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import './App.css'
-// import Input from './components/Input';
+import './App.css';
 import EditSection from './components/EditSection';
 import CollapsableEditSection from './components/CollapsableEditSection';
 import ResumeDisplay from './components/ResumeDisplay';
@@ -133,7 +132,6 @@ function App() {
 
   function changeExperienceDetails(id, text, entryId) {
     const experienceCopy = [...experience];
-    // console.log(experienceCopy[entryId])
     experienceCopy[entryId][id].value = text;
 
     setExperience(experienceCopy);
@@ -215,6 +213,7 @@ function App() {
       description: {
         inputLabel: "Description: ",
         id: "description",
+        placeHolder: "Describe the responsiblities and tasks involved...",
         type: "textarea",
 
       }
@@ -235,35 +234,23 @@ function App() {
   }
 
   function deleteEducationEntry(index) {
-    // console.log("Calling delete education entry function");
-
-    // console.log('the item being deleted is')
-    // console.log(education[index].school)
-
     const educationCopy = [...education];
     educationCopy.splice(index, 1);
     updateIds(educationCopy);
-    // console.log(educationCopy)
     setEducation(educationCopy);
   }
 
   function deleteExperienceEntry(index) {
-    // console.log("Calling delete education entry function");
-
-    // console.log('the item being deleted is')
-    // console.log(education[index].school)
-
     const experienceCopy = [...experience];
     experienceCopy.splice(index, 1);
     updateIds(experienceCopy);
-    // console.log(educationCopy)
     setExperience(experienceCopy);
   }
 
   return (
     <div id="app">
       <div className="edit-container container">
-        <h2>Edit:</h2>
+        <h2>Edit Content:</h2>
         <EditSection
           sectionTitle="Personal Details"
           inputs={personalDetails}

@@ -1,5 +1,3 @@
-// import React, { useState } from "react";
-
 export default function Input({
     type, value, label, placeHolder, onChange, elementId, entryId }) {
     return (
@@ -12,9 +10,9 @@ export default function Input({
                     rows={6}
                     onChange={(event) => onChange(elementId, event.target.value, entryId)} />
                 : <input
-
-                    pattern={type === 'tel' ? "[0-9]{3}-[0-9]{3}-[0-9]{4}" : null}
                     type={type === undefined ? 'text' : type}
+                    maxLength={type === undefined ? '32' : type === 'email' ? '40' : '12'}
+                    pattern={type === 'tel' ? "[0-9]{3}-[0-9]{3}-[0-9]{4}" : null}
                     value={value}
                     placeholder={placeHolder}
                     onChange={(event) => onChange(

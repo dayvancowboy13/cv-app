@@ -33,8 +33,10 @@ function PersonalDetailsSection({ name, email, phone, address }) {
     }
 
     function formatPhoneNumber(number) {
-        const numString = number.toString();
-        return numString.slice(0, 3) + "-" + numString.slice(3, 6) + "-" + numString.slice(6);
+        if (number) {
+            const numString = number.toString();
+            return numString.slice(0, 3) + "-" + numString.slice(3, 6) + "-" + numString.slice(6);
+        }
     }
 
 
