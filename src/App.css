@@ -1,5 +1,4 @@
 #root {
-  /* max-width: 1280px; */
   margin: 0 auto;
   padding: 1rem;
   text-align: center;
@@ -12,50 +11,18 @@
 }
 
 #app {
-
   display: flex;
   padding: 0 80px 0;
   gap: 20px;
-  /* flex-direction: column; */
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
 }
 
 .edit-container {
   background-color: white;
+}
+
+.container {
+  border-radius: 24px;
+  min-width: 350px;
 }
 
 form {
@@ -68,14 +35,8 @@ form h2 {
   justify-self: first baseline;
 }
 
-.container {
-  /* padding: 0 20px 10px; */
-  /* border: 1px solid black; */
-  border-radius: 24px;
-  min-width: 350px;
-}
 
-.container li {
+li {
   padding: 5px 0;
   list-style-type: none;
   width: 100%;
@@ -98,12 +59,15 @@ form h2 {
     padding: 3px 5px;
     font-size: 18px;
     border: 3px solid #222222;
-    /* width: 100%; */
+    transition: box-shadow 0.16s ease-in-out,
+      0.1s ease-in-out;
   }
 
-  & input:focus {
+  & input:focus,
+  textarea:focus {
     border: 3px solid var(--yellow-color);
     outline: none;
+    box-shadow: #414141 0 0 7px;
   }
 
 }
@@ -167,13 +131,23 @@ button {
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.15s;
+
+  transition: border-width border-color box-shadow transform 0.15s ease-in-out;
 }
 
 button:hover {
-  /* box-sizing: border-box; */
+  border-width: 3px;
   border-color: #000000;
-  /* border-width: 3px; */
+  box-shadow: #414141 0 0 7px;
+
+  transform: scale(1.05);
+}
+
+button:active {
+  /* border-color: #000000; */
+  transition: transform 0.03s;
+
+  transform: scale(.9);
 }
 
 button:focus,

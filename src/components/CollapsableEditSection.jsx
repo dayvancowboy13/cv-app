@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Input from "./Input";
-
-// const educationEntryTemplate = 
+import '../styles/EditSections.css'
 
 export default function CollapsableEditSection({
     sectionTitle, inputs, onChange, onAdd, onDelete }) {
@@ -49,7 +48,6 @@ export default function CollapsableEditSection({
     }
 
     return (
-
         <>
             <form className={`${sectionTitle.toLowerCase()} edit-section`}>
                 <h2>{sectionTitle}</h2>

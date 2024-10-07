@@ -1,10 +1,8 @@
-// import React, { useState } from "react";
 import Input from "./Input";
+import '../styles/EditSections.css'
 
 export default function EditSection({ sectionTitle, inputs, onChange }) {
     const keys = Object.keys(inputs)
-
-    // const divClass = sectionTitle.toString().repl
 
     return (
 
