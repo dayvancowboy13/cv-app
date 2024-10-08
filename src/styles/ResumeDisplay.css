@@ -54,15 +54,15 @@
 }
 
 .details-phone::before {
-    content: url('../images/phone.svg');
+    content: url('../../images/phone.svg');
 }
 
 .details-email::before {
-    content: url('../images/mail.svg');
+    content: url('../../images/mail.svg');
 }
 
 .details-location::before {
-    content: url('../images/location.svg');
+    content: url('../../images/location.svg');
 }
 
 .degree {

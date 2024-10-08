@@ -1,4 +1,4 @@
-import '../styles/ResumeDisplay.css'
+import '../styles/ResumeDisplay.css';
 
 export default function ResumeDisplay({ personalDetails, education, experience }) {
 
